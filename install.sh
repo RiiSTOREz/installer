@@ -7,7 +7,7 @@ ALLOWED_IPS=(
 )
 
 # Tentukan lisensi yang valid
-VALID_LICENSE="lio"
+VALID_LICENSE="buyerpremium"
 
 # Path file lisensi dan file kesalahan
 LICENSE_FILE="/var/www/pterodactyl/license.txt"
@@ -123,11 +123,11 @@ load_config
 # Menampilkan banner
 clear
 echo -e "\033[31m"
-echo -e "\033[32mWHATSAPP : 087743212449\033[0m"
-echo -e "\033[31mYOUTUBE : LEXCZXMODZ\033[0m"
+echo -e "\033[32mINSTAGRAM : fakhriigt\033[0m"
+echo -e "\033[31mYOUTUBE : riistoreid\033[0m"
 echo ""
 
-animate_text "ANDA SUDAH TERVERIFIKASI, SILAHKAN MASUKAN LICENSE YANG DI BAGI DARI LEXCZ"
+animate_text "ANDA SUDAH TERVERIFIKASI, SILAHKAN MASUKAN LICENSE YANG DI BAGI DARI RIISTORE"
 
 # Minta pengguna memasukkan lisensi
 read -p "Masukkan lisensi Anda: " INPUT_LICENSE

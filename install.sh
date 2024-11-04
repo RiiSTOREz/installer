@@ -28,7 +28,7 @@ validate_user_token() {
     # Meminta input token dari pengguna
     echo -e "${RED}[+] ====================================== [+]${NC}"
     echo -e "${RED}[+]     WELCOME TO PREMIUM INSTALLER       [+]${NC}"
-    echo -e "${RED}[+]               RII STORE                 [+]${NC}"
+    echo -e "${RED}[+]               RII STORE                [+]${NC}"
     echo -e "${RED}[+] ====================================== [+]${NC}"
     echo -e ""
     echo -e "${RED}SILAHKAN MASUKAN TOKEN YANG DI BERI RIISTORE${NC}"

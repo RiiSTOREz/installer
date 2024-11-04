@@ -73,61 +73,12 @@ check_token() {
   fi
   clear
 }
-
-ADMIN_WHATSAPP_NUMBER="083161246809"
-
-WHATSAPP_FILE="/var/whatsapp_number.txt"
-LICENSE_FILE="/var/license.txt"
-ERROR_FILE="/var/error_count.txt"
-
-# Inisialisasi file kesalahan jika tidak ada
-if [[ ! -f "$ERROR_FILE" ]]; then
-    echo "0" > "$ERROR_FILE"
-fi
-
-# Definisi warna untuk tampilan teks
-ORANGE='\033[33m'
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[1;33m'
-RESET='\033[0m'
-
-# Fungsi untuk menyimpan konfigurasi
-save_config() {
-    echo "DISABLE_ANIMATIONS=${DISABLE_ANIMATIONS}" > /var/www/pterodactyl/config/installer_config
-}
-
-# Fungsi untuk memuat konfigurasi
-load_config() {
-    if [[ -f /var/www/pterodactyl/config/installer_config ]]; then
-        source /var/www/pterodactyl/config/installer_config
-    else
-        DISABLE_ANIMATIONS=0
-    fi
-}
-
 # Fungsi untuk menampilkan animasi teks
 animate_text() {
     local text="$1"
     for ((i=0; i<${#text}; i++)); do
         printf "%s" "${text:$i:1}"
-        sleep 0.03  # Memberikan jeda agar terlihat seperti animasi
-    done
-    echo ""
-}
-
-# Fungsi untuk menampilkan animasi loading
-loading_animation() {
-    local spinstr='|/-\'
-    local i=0
-    while [ "$i" -lt 20 ]; do  # Membatasi jumlah iterasi agar tidak infinite
-        printf " [%c] Loading..." "${spinstr:i++%${#spinstr}:1}"
-        sleep 0.1
-        printf "\r"
-    done
-}
-
+        sl
 # Mulai script dengan membersihkan terminal
 load_config
 clear

@@ -73,17 +73,6 @@ check_token() {
   fi
   clear
 }
-# Fungsi untuk menampilkan animasi teks
-animate_text() {
-    local text="$1"
-    for ((i=0; i<${#text}; i++)); do
-        printf "%s" "${text:$i:1}"
-        sl
-# Mulai script dengan membersihkan terminal
-load_config
-clear
-echo -e "${RED}Starting Installer...${RESET}"
-
 # Menu installer
 echo -e "${BLUE}Pilih opsi:${RESET}"
 echo -e "1. Install Theme Elysium"

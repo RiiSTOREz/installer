@@ -30,8 +30,13 @@ validate_user_token() {
     echo -e "${RED}[+]     WELCOME TO PREMIUM INSTALLER       [+]${NC}"
     echo -e "${RED}[+]               RII STORE                 [+]${NC}"
     echo -e "${RED}[+] ====================================== [+]${NC}"
-    echo -e "${GREEN}"
-    echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
+    echo -e ""
+    echo -e "${RED}SILAHKAN MASUKAN TOKEN YANG DI BERI RIISTORE${NC}"
+    echo -e "${RED}ANDA BELUM MENDAPATKAN TOKEN? BELI DI RIISTORE${NC}"
+    echo -e "${RED}CUMAN 10K DAH FREE UPDATE${NC}"
+    echo -e "${GREEN}WHATSAPP : 083161246809${NC}"
+    echo -e "${BLUE}INSTAGRAM : @fakhriigt${NC}"
+    echo -e "${YELLOW}MASUKAN TOKEN YANG ANDA BELI DI RIISTORE :${NC}"
     read -r USER_INPUT
 
     # Memeriksa apakah token yang dimasukkan sesuai

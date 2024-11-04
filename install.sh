@@ -1,78 +1,93 @@
 #!/bin/bash
-# Color
-BLUE='\033[0;34m'       
+
+ADMIN_WHATSAPP_NUMBER="083161246809"
+
+WHATSAPP_FILE="/var/whatsapp_number.txt"
+LICENSE_FILE="/var/license.txt"
+ERROR_FILE="/var/error_count.txt"
+USER_TOKEN_FILE="token.json"  # Menyimpan token dalam file JSON
+
+# Inisialisasi file kesalahan jika tidak ada
+if [[ ! -f "$ERROR_FILE" ]]; then
+    echo "0" > "$ERROR_FILE"
+fi
+
+# Definisi warna untuk tampilan teks
+ORANGE='\033[33m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+RESET='\033[0m'
 NC='\033[0m'
 
-# Display welcome message
-display_welcome() {
-  echo -e ""
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                                                 [+]${NC}"
-  echo -e "${BLUE}[+]                AUTO INSTALLER THEMA             [+]${NC}"
-  echo -e "${BLUE}[+]                  © ZERONE OFFC                [+]${NC}"
-  echo -e "${BLUE}[+]                                                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e ""
-  echo -e "script ini di buat untuk mempermudah penginstalasian thema pterodactyle,"
-  echo -e "dilarang keras untuk memperjual belikan."
-  echo -e ""
-  echo -e "𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣 :"
-  echo -e "0838-5641-0394"
-  echo -e "𝗬𝗢𝗨𝗧𝗨𝗕𝗘 :"
-  echo -e "@ZeroOffc"
-  echo -e "𝗖𝗥𝗘𝗗𝗜𝗧𝗦 :"
-  echo -e "@foxstore"
-  sleep 4
-  clear
+# Fungsi untuk validasi token pengguna
+validate_user_token() {
+    # Membaca token "buyerpremium" dari file token.json
+    TOKEN=$(jq -r '.buyerpremium' "$USER_TOKEN_FILE")
+
+    # Meminta input token dari pengguna
+    echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
+    read -r USER_TOKEN
+
+    # Memeriksa apakah token yang dimasukkan sesuai
+    if [ "$USER_TOKEN" = "$TOKEN" ]; then
+        echo -e "${GREEN}AKSES BERHASIL${NC}"
+    else
+        echo -e "${RED}AKSES GAGAL${NC}"
+        exit 1
+    fi
+    clear
 }
 
-#Update and install jq
-install_jq() {
-  echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]             UPDATE & INSTALL JQ                 [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
-  sudo apt update && sudo apt install -y jq
-  if [ $? -eq 0 ]; then
-    echo -e "                                                       "
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
-    echo -e "${GREEN}[+]              INSTALL JQ BERHASIL                [+]${NC}"
-    echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  else
-    echo -e "                                                       "
-    echo -e "${RED}[+] =============================================== [+]${NC}"
-    echo -e "${RED}[+]              INSTALL JQ GAGAL                   [+]${NC}"
-    echo -e "${RED}[+] =============================================== [+]${NC}"
+# Memvalidasi token sebelum memulai
+if [[ -f "$USER_TOKEN_FILE" ]]; then
+    validate_user_token
+else
+    echo -e "${RED}File token.json tidak ditemukan!${RESET}"
     exit 1
-  fi
-  echo -e "                                                       "
-  sleep 1
-  clear
-}
-#Check user token
-check_token() {
-  echo -e "                                                       "
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]               LICENSY ZERONE OFFC             [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
-  TOKEN=$(jq -r '.token' token.json)
+fi
 
-  echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
-  read -r USER_TOKEN
-
-  if [ "$USER_TOKEN" = "zerone" ]; then
-    echo -e "${GREEN}AKSES BERHASIL${NC}}"
-  else
-    echo -e "${GREEN}AKSES GAGAL${NC}"
-    exit 1
-  fi
-  clear
+# Fungsi untuk menyimpan konfigurasi
+save_config() {
+    echo "DISABLE_ANIMATIONS=${DISABLE_ANIMATIONS}" > /var/www/pterodactyl/config/installer_config
 }
+
+# Fungsi untuk memuat konfigurasi
+load_config() {
+    if [[ -f /var/www/pterodactyl/config/installer_config ]]; then
+        source /var/www/pterodactyl/config/installer_config
+    else
+        DISABLE_ANIMATIONS=0
+    fi
+}
+
+# Fungsi untuk menampilkan animasi teks
+animate_text() {
+    local text="$1"
+    for ((i=0; i<${#text}; i++)); do
+        printf "%s" "${text:$i:1}"
+        sleep 0.03  # Memberikan jeda agar terlihat seperti animasi
+    done
+    echo ""
+}
+
+# Fungsi untuk menampilkan animasi loading
+loading_animation() {
+    local spinstr='|/-\'
+    local i=0
+    while [ "$i" -lt 20 ]; do  # Membatasi jumlah iterasi agar tidak infinite
+        printf " [%c] Loading..." "${spinstr:i++%${#spinstr}:1}"
+        sleep 0.1
+        printf "\r"
+    done
+}
+
+# Mulai script dengan membersihkan terminal
+load_config
+clear
+echo -e "${RED}Starting Installer...${RESET}"
+
 # Menu installer
 echo -e "${BLUE}Pilih opsi:${RESET}"
 echo -e "1. Install Theme Elysium"
@@ -189,11 +204,4 @@ case "$OPTION" in
         # Keluar dari installer
         echo -e "${BLUE}Keluar dari Installer.${RESET}"
         exit 0
-        ;;
-
-    *)
-        echo -e "${RED}Pilihan tidak valid.${RESET}"
-        ;;
-esac
-
-animate_text "Proses Selesai."
+        ;

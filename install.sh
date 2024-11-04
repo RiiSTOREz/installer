@@ -27,8 +27,8 @@ NC='\033[0m'
 validate_user_token() {
     # Meminta input token dari pengguna
     echo -e "${RED}[+] =============================================== [+]${NC}"
-    echo -e "[+] WELCOME TO PREMIUM INSTALLER     [+]${NC}"
-    echo -e "[+]        RII STORE                [+]${NC}"
+    echo -e "[+]         WELCOME TO PREMIUM INSTALLER               [+]${NC}"
+    echo -e "[+]                RII STORE                         [+]${NC}"
     echo -e "[+] =============================================== [+]${NC}"
     echo -e "${GREEN}"
     echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"

@@ -5,7 +5,9 @@ ADMIN_WHATSAPP_NUMBER="083161246809"
 WHATSAPP_FILE="/var/whatsapp_number.txt"
 LICENSE_FILE="/var/license.txt"
 ERROR_FILE="/var/error_count.txt"
-USER_TOKEN_FILE="token.json"  # Menyimpan token dalam file JSON
+
+# Token akses pengguna langsung di dalam skrip
+USER_TOKEN="buyerpremium"
 
 # Inisialisasi file kesalahan jika tidak ada
 if [[ ! -f "$ERROR_FILE" ]]; then
@@ -23,15 +25,12 @@ NC='\033[0m'
 
 # Fungsi untuk validasi token pengguna
 validate_user_token() {
-    # Membaca token "buyerpremium" dari file token.json
-    TOKEN=$(jq -r '.buyerpremium' "$USER_TOKEN_FILE")
-
     # Meminta input token dari pengguna
     echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
-    read -r USER_TOKEN
+    read -r USER_INPUT
 
     # Memeriksa apakah token yang dimasukkan sesuai
-    if [ "$USER_TOKEN" = "$TOKEN" ]; then
+    if [ "$USER_INPUT" = "$USER_TOKEN" ]; then
         echo -e "${GREEN}AKSES BERHASIL${NC}"
     else
         echo -e "${RED}AKSES GAGAL${NC}"
@@ -41,12 +40,7 @@ validate_user_token() {
 }
 
 # Memvalidasi token sebelum memulai
-if [[ -f "$USER_TOKEN_FILE" ]]; then
-    validate_user_token
-else
-    echo -e "${RED}File token.json tidak ditemukan!${RESET}"
-    exit 1
-fi
+validate_user_token
 
 # Fungsi untuk menyimpan konfigurasi
 save_config() {

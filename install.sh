@@ -26,10 +26,10 @@ NC='\033[0m'
 # Fungsi untuk validasi token pengguna
 validate_user_token() {
     # Meminta input token dari pengguna
-    echo -e "${RED}[+] =============================================== [+]"
-    echo -e "[+] WELCOME TO PREMIUM INSTALLER     [+]"
-    echo -e "[+]        RII STORE                [+]"
-    echo -e "[+] =============================================== [+]"
+    echo -e "${RED}[+] =============================================== [+]${NC}"
+    echo -e "[+] WELCOME TO PREMIUM INSTALLER     [+]${NC}"
+    echo -e "[+]        RII STORE                [+]${NC}"
+    echo -e "[+] =============================================== [+]${NC}"
     echo -e "${GREEN}"
     echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
     read -r USER_INPUT

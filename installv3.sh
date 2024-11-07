@@ -168,7 +168,7 @@ echo "11. HACKBACK PANEL"
 echo "12. GANTI PW VPS"
 echo "13. INSTALL PANEL + WINGS
 echo "14. KELUAR DARI INSTALLER"
-read -p "PILIH OPSI (1-14): " OPTION
+read -p "PILIH OPSI (1-14):" OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini

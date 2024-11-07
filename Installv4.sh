@@ -102,9 +102,9 @@ animate_text "JIKA BELUM PUNYA LICENSE SILAHKAN BELI DI RIISTORE ID , CUMAN 10K 
 animate_text " CONTACT RIISTORE ID: "
 echo -e "${RED}WhatsApp: 083161246809${NC}"
 echo -e "${RED}Instagram : @fakhriigt${NC}"
-
+echo -e ""
 # Minta pengguna memasukkan lisensi
-read -p "${GREEN}Masukkan lisensi Anda: ${NC}" INPUT_LICENSE
+read -p "Masukkan lisensi Anda: " INPUT_LICENSE
 
 # Verifikasi lisensi
 if [ "$INPUT_LICENSE" != "$VALID_LICENSE" ]; then

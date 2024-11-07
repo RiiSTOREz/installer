@@ -165,7 +165,8 @@ echo "8. HAPUS BACKROUND PTERODACTYL (RESET BACKROUND JADI YANG AWAL)"
 echo "9. HAPUS THEME/ADDON"
 echo "10. MATIKAN SEMUA ANIMASI INSTALLER (TIDAK BERLAKU DI WEB ANDA HANYA MEMATIKAN TEXT ANIMATION INSTALLER)"
 echo "11. HACKBACK PANEL"
-echo "12. KELUAR DARI INSTALLER"
+echo "12. GANTI PW VPS"
+echo "13. KELUAR DARI INSTALLER"
 read -p "PILIH OPSI (1-11): " OPTION
 case "$OPTION" in
     1)
@@ -820,6 +821,31 @@ EOF
   sleep 2
         ;;
     12)
+          echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]                    UBAH PASSWORD VPS       [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+read -p "Masukkan Pw Baru: " pw
+read -p "Masukkan Ulang Pw Baru " pw
+
+passwd <<EOF
+$pw
+$pw
+
+EOF
+
+
+  echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]                 GANTI PW VPS SUKSES         [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+  sleep 2
+  
+        exit 0
+        ;;
+    13)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

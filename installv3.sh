@@ -821,7 +821,6 @@ EOF
   sleep 2
   
   exit 0
-;;
     12)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

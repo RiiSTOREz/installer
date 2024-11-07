@@ -889,7 +889,7 @@ y
 y
 y
 yes
-y
+a
 y
 y
 y
@@ -903,7 +903,6 @@ y
 admin@gmail.com
 y
 EOF
-
 
   echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"

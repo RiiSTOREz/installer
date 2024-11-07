@@ -104,7 +104,7 @@ echo -e "${RED}WhatsApp: 083161246809${NC}"
 echo -e "${RED}Instagram : @fakhriigt${NC}"
 
 # Minta pengguna memasukkan lisensi
-read -p "Masukkan lisensi Anda: " INPUT_LICENSE
+read -p "${GREEN}Masukkan lisensi Anda: ${NC}" INPUT_LICENSE
 
 # Verifikasi lisensi
 if [ "$INPUT_LICENSE" != "$VALID_LICENSE" ]; then

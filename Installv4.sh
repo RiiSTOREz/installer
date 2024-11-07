@@ -100,7 +100,7 @@ echo ""
 animate_text "ANDA SUDAH TERVERIFIKASI, SILAHKAN MASUKAN LICENSE YANG DI BAGI DARI RIISTORE ID"
 animate_text "JIKA BELUM PUNYA LICENSE SILAHKAN BELI DI RIISTORE ID , CUMAN 10K DAH FREE UPDATE LICENSE"
 animate_text " CONTACT RIISTORE ID: "
-animate_text "WhatsApp: 083161246809"
+animate_text "${RED}WhatsApp: 083161246809${NC}"
 animate_text "Instagram : @fakhriigt"
 
 # Minta pengguna memasukkan lisensi

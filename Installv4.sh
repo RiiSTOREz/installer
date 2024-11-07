@@ -158,12 +158,12 @@ echo -ne "\033[K"  # Menghapus teks loading dari baris
 sleep 0.5
 
 # Menampilkan opsi tanpa animasi
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "${BLUE}[+]                                                        [+]${NC}"
-  echo -e "${BLUE}[+]            WELCOME TO INSTALLER PREMIUM        [+]${NC}"
-  echo -e "${BLUE}[+]                    © RII STORE ID.                    [+]${NC}"
-  echo -e "${BLUE}[+]                                                        [+]${NC}"
-  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}[+] ============================================== [+]${NC}"
+  echo -e "${BLUE}[+]                                                [+]${NC}"
+  echo -e "${BLUE}[+]          WELCOME TO INSTALLER PREMIUM          [+]${NC}"
+  echo -e "${BLUE}[+]                 © RII STORE ID.                [+]${NC}"
+  echo -e "${BLUE}[+]                                                [+]${NC}"
+  echo -e "${BLUE}[+] ============================================== [+]${NC}"
 echo ""
 echo "1. INSTALL THEME ELYSIUM PTERODACTYL"
 echo "2. INSTALL ADDON AUTO SUSPEND PTERODACTYL"

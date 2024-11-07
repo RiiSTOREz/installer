@@ -178,10 +178,11 @@ echo "10. MATIKAN SEMUA ANIMASI INSTALLER (TIDAK BERLAKU DI WEB ANDA HANYA MEMAT
 echo "11. HACKBACK PANEL"
 echo "12. GANTI PW VPS"
 echo "13. INSTALL PANEL + WINGS"
-echo "14. BUAT NODE PANEL"
-echo "15. CONFIGURE WINGS"
-echo "16. KELUAR DARI INSTALLER"
-read -p "PILIH OPSI (1-16): " OPTION
+echo "14. UNINSTALL PANEL"
+echo "15. BUAT NODE PANEL"
+echo "16. CONFIGURE WINGS"
+echo "17. KELUAR DARI INSTALLER"
+read -p "PILIH OPSI (1-17: " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -915,6 +916,35 @@ EOF
     14)
           echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "${BLUE}[+]                    UNINSTALL PANEL                 [+]${NC}"
+  echo -e "${BLUE}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+read -p "UninstallPanel y/n " ypanel
+read -p "UninstallWings y/n " ywings
+read -p "Input y/n " y1
+read -p "Input y/n " y2
+
+bash <(curl -s https://pterodactyl-installer.se) <<EOF
+6
+ypanel
+ywings
+y1
+y2
+EOF
+
+
+  echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]                 UNINSTALL PANEL SUKSES             [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+  sleep 2
+  clear
+         exit 0
+         ;;
+    15)
+          echo -e "                                                       "
+  echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CREATE NODE                      [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
@@ -968,7 +998,7 @@ EOF
   clear
         exit 0
         ;;
-    15)
+    16)
         echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CONFIGURE WINGS                 [+]${NC}"
@@ -992,7 +1022,7 @@ sudo systemctl start wings
   clear
         exit 0
         ;;
-    16)
+    17)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

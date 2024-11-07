@@ -166,8 +166,9 @@ echo "9. HAPUS THEME/ADDON"
 echo "10. MATIKAN SEMUA ANIMASI INSTALLER (TIDAK BERLAKU DI WEB ANDA HANYA MEMATIKAN TEXT ANIMATION INSTALLER)"
 echo "11. HACKBACK PANEL"
 echo "12. GANTI PW VPS"
-echo "13. KELUAR DARI INSTALLER"
-read -p "PILIH OPSI (1-11): " OPTION
+echo "13. INSTALL PANEL + WINGS
+echo "14. KELUAR DARI INSTALLER"
+read -p "PILIH OPSI (1-14): " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -846,6 +847,60 @@ EOF
         exit 0
         ;;
     13)
+        echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]            AUTO INSTALL PANEL + WINGS           [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+read -p "Masukkan Nama " nama
+read -p "Masukkan Password " pw
+read -p "Masukkan Subdomain " subdo
+read -p "Masukkan NodeSubdomain " nodesubdo
+
+bash <(curl -s https://pterodactyl-installer.se) <<EOF
+2
+\n
+\n
+pw
+Asia/Jakarta
+admin@gmail.com
+admin@gmail.com
+nama
+nama
+nama
+pw
+subdo
+y
+y
+y
+y
+yes
+A
+y
+y
+y
+subdo
+y
+user
+pw
+y
+nodesubdo
+y
+admin@gmail.com
+y
+EOF
+
+
+  echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]                  AUTO INSTALL SUKSE             [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+  sleep 2
+  
+        exit 0
+        ;;
+    14)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

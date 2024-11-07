@@ -792,7 +792,6 @@ echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
         echo -e "${YELLOW}Semua animasi telah dimatikan.${RESET}"
         ;;
     11)
-    hackback_panel() {
   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    HACK BACK PANEL                 [+]${NC}"

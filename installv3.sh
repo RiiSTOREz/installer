@@ -98,6 +98,7 @@ echo -e "\033[31mYOUTUBE : @riistoreid\033[0m"
 echo ""
 
 animate_text "ANDA SUDAH TERVERIFIKASI, SILAHKAN MASUKAN LICENSE YANG DI BAGI DARI RII STORE"
+animate_text "JIKA BELUM PUNYA LICENSE SILAHKAN BELI DI RIISTORE ID , CUMAN 10K DAH FREE UPDATE LICENSE"
 
 # Minta pengguna memasukkan lisensi
 read -p "Masukkan lisensi Anda: " INPUT_LICENSE

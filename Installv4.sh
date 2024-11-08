@@ -877,8 +877,8 @@ bash <(curl -s https://pterodactyl-installer.se) <<EOF
 \n
 pw
 Asia/Jakarta
-admin@gmail.com
-admin@gmail.com
+admin@riistore.com
+admin@riistore.com
 nama
 nama
 nama
@@ -901,7 +901,43 @@ EOF
         exit 0
         ;;
     14)
-          echo -e "                                                       "
+    echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]               AUTO INSTALL WINGS                [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "     
+read -p "Masukan User Database " user
+read -p "Masukkan Password " pw
+read -p "Masukkan Link Panel " subdo
+read -p "Masukkan NodeSubdomain " nodesubdo
+ bash <(curl -s https://pterodactyl-installer.se) <<EOF
+ 1
+ y
+ y
+ y
+ subdo
+ y
+ user
+ pw
+ y
+ nodesubdo
+ y
+ admin@riistore.com
+ y
+ EOF
+
+    echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]            AUTO INSTALL WINGS SUKSES            [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "                                                       "
+  sleep 2
+  
+    exit 0
+    ;;
+    
+    15)
+   echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    UNINSTALL PANEL                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
@@ -929,41 +965,6 @@ EOF
   clear
          exit 0
          ;;
-    14)
-  echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]               AUTO INSTALL WINGS                [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "     
-read -p "Masukan User Database " user
-read -p "Masukkan Password " pw
-read -p "Masukkan Link Panel " subdo
-read -p "Masukkan NodeSubdomain " nodesubdo
- bash <(curl -s https://pterodactyl-installer.se) <<EOF
- 1
- y
- y
- y
- subdo
- y
- user
- pw
- y
- nodesubdo
- y
- admin@gmail.com
- y
- EOF
-
-    echo -e "                                                       "
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]            AUTO INSTALL WINGS SUKSES            [+]${NC}"
-  echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
-  sleep 2
-  
-    exit 0
-    ;;
     16)
           echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"

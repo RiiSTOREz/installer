@@ -1049,6 +1049,3 @@ sudo systemctl start wings
     *)
         echo -e "${RED}Pilihan tidak valid.${RESET}"
         ;;
-esac
-
-animate_text "𝗣𝗥𝗢𝗦𝗘𝗦 𝗦𝗘𝗟𝗘𝗦𝗔𝗜"

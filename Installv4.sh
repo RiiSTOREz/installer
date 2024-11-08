@@ -863,16 +863,15 @@ EOF
     13)
         echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "${GREEN}[+]            AUTO INSTALL PANEL + WINGS           [+]${NC}"
+  echo -e "${GREEN}[+]                AUTO INSTALL PANEL               [+]${NC}"
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
 read -p "Masukkan Nama " nama
 read -p "Masukkan Password " pw
 read -p "Masukkan Subdomain " subdo
-read -p "Masukkan NodeSubdomain " nodesubdo
 
 bash <(curl -s https://pterodactyl-installer.se) <<EOF
-2
+0
 \n
 \n
 pw
@@ -889,19 +888,7 @@ y
 y
 y
 yes
-a
-y
-y
-y
-subdo
-y
-user
-pw
-y
-nodesubdo
-y
-admin@gmail.com
-y
+A
 EOF
 
   echo -e "                                                       "

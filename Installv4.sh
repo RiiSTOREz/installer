@@ -177,12 +177,13 @@ echo "9. HAPUS THEME/ADDON"
 echo "10. MATIKAN SEMUA ANIMASI INSTALLER (TIDAK BERLAKU DI WEB ANDA HANYA MEMATIKAN TEXT ANIMATION INSTALLER)"
 echo "11. HACKBACK PANEL"
 echo "12. GANTI PW VPS"
-echo "13. INSTALL PANEL + WINGS"
-echo "14. UNINSTALL PANEL"
-echo "15. BUAT NODE PANEL"
-echo "16. CONFIGURE WINGS"
-echo "17. KELUAR DARI INSTALLER"
-read -p "PILIH OPSI (1-17: " OPTION
+echo "13. INSTALL PANEL"
+echo "14. INSTALL WINGS"
+echo "15. UNINSTALL PANEL"
+echo "16. BUAT NODE PANEL"
+echo "17. CONFIGURE WINGS"
+echo "18. KELUAR DARI INSTALLER"
+read -p "PILIH OPSI (1-18): " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -928,7 +929,28 @@ EOF
   clear
          exit 0
          ;;
-    15)
+    14)
+  echo -e "                                                       "
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "${GREEN}[+]               AUTO INSTALL WINGS                [+]${NC}"
+  echo -e "${GREEN}[+] =============================================== [+]${NC}"
+  echo -e "     
+read -p "Masukkan Password " pw
+read -p "Masukkan NodeSubdomain " nodesubdo
+ bash <(curl -s https://pterodactyl-installer.se) <<EOF
+ 0
+ y
+ y
+ y
+ user
+ pw
+ y
+ nodesubdo
+ y
+ admin@gmail.com
+ y
+ EOF
+    16)
           echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CREATE NODE                      [+]${NC}"
@@ -984,7 +1006,7 @@ EOF
   clear
         exit 0
         ;;
-    16)
+    17)
         echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CONFIGURE WINGS                 [+]${NC}"
@@ -1008,7 +1030,7 @@ sudo systemctl start wings
   clear
         exit 0
         ;;
-    17)
+    18)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

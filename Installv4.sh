@@ -970,10 +970,7 @@ EOF
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CREATE NODE                      [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
-  #!/bin/bash
-#!/bin/bash
-
+  echo -e "                                                        "
 # Minta input dari pengguna
 read -p "Masukkan nama lokasi: " location_name
 read -p "Masukkan deskripsi lokasi: " location_description

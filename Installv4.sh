@@ -122,7 +122,7 @@ fi
 
 # Fungsi untuk menampilkan animasi loading
 loading_animation() {
-    local delay=0.1
+    local delay=0.2
     local spinstr='|/-\'
     local loading_text="LOADING..."
     local i=0
@@ -866,7 +866,7 @@ EOF
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "${GREEN}[+]                AUTO INSTALL PANEL               [+]${NC}"
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
+        echo -e "                                                       "
 read -p "Masukkan Nama " nama
 read -p "Masukkan Password " pw
 read -p "Masukkan Subdomain " subdo
@@ -930,7 +930,7 @@ read -p "Masukkan NodeSubdomain " nodesubdo
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "${GREEN}[+]            AUTO INSTALL WINGS SUKSES            [+]${NC}"
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
+ echo -e "                                                       "
   sleep 2
   
     exit 0
@@ -941,7 +941,7 @@ read -p "Masukkan NodeSubdomain " nodesubdo
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    UNINSTALL PANEL                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
+   echo -e "                                                       "
 read -p "UninstallPanel y/n " ypanel
 read -p "UninstallWings y/n " ywings
 read -p "Input y/n " y1
@@ -970,7 +970,7 @@ EOF
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CREATE NODE                      [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                        "
+          echo -e "                                                        "
 # Minta input dari pengguna
 read -p "Masukkan nama lokasi: " location_name
 read -p "Masukkan deskripsi lokasi: " location_description
@@ -1018,12 +1018,12 @@ EOF
   clear
         exit 0
         ;;
-    17)
+    17) 
         echo -e "                                                       "
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "${BLUE}[+]                    CONFIGURE WINGS                 [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
-  echo -e "                                                       "
+        echo -e "                                                       "
   #!/bin/bash
 
 # Minta input token dari pengguna
@@ -1051,5 +1051,4 @@ sudo systemctl start wings
         ;;
 
 esac
-
-animate_text "𝗣𝗥𝗢𝗦𝗘𝗦 𝗦𝗘𝗟𝗘𝗦𝗔𝗜"
+animate_text '𝗣𝗥𝗢𝗦𝗘𝗦 𝗦𝗘𝗟𝗘𝗦𝗔𝗜'

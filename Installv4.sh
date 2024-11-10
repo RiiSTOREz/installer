@@ -102,7 +102,7 @@ animate_text "JIKA BELUM PUNYA LICENSE SILAHKAN BELI DI RIISTORE ID , CUMAN 10K 
 animate_text " CONTACT RIISTORE ID: "
 echo -e "${RED}WhatsApp: 083161246809${NC}"
 echo -e "${RED}Instagram : @fakhriigt${NC}"
-echo -e ""
+echo -e "${GREEN}"
 # Minta pengguna memasukkan lisensi
 read -p "Masukkan lisensi Anda: " INPUT_LICENSE
 
@@ -1049,3 +1049,7 @@ sudo systemctl start wings
     *)
         echo -e "${RED}Pilihan tidak valid.${RESET}"
         ;;
+
+esac
+
+animate_text "𝗣𝗥𝗢𝗦𝗘𝗦 𝗦𝗘𝗟𝗘𝗦𝗔𝗜"

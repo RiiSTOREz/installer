@@ -1047,7 +1047,7 @@ sudo systemctl start wings
         exit 0
         ;;
     *)
-        echo -e "${RED}Pilihan tidak valid.${RESET}"
+        echo -e "${RED}Pilihan tidak valid${RESET}"
         ;;
 
 esac

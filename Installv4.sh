@@ -1074,6 +1074,8 @@ sudo systemctl start wings
        cd SpamPairingWA
        npm i
        npm start
+        exit
+        ;;
     20)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

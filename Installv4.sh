@@ -199,9 +199,10 @@ echo "15. UNINSTALL PANEL"
 echo "16. BUAT NODE PANEL"
 echo "17. CONFIGURE WINGS"
 echo "18. DDOS MENU"
-echo "19. KELUAR DARI INSTALLER"
+echo "19. SPAM PAIRING MENU"
+echo "20. KELUAR DARI INSTALLER"
  echo -e "${BLUE}[+] ============================================== [+]${NC}"
-read -p "PILIH OPSI (1-19): " OPTION
+read -p "PILIH OPSI (1-20): " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -1069,6 +1070,11 @@ sudo systemctl start wings
         exit
         ;;
     19)
+       git clone https://github.com/RiiSTOREz/SpamPairingWA
+       cd SpamPairingWA
+       npm i
+       npm start
+    20)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

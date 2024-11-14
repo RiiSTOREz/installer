@@ -1129,6 +1129,9 @@ echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
            echo -e ${YELLOW}"PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA"${RESET}
            php artisan up
            echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
+           exit
+           ;;
+           
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

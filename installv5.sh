@@ -170,6 +170,7 @@ sleep 0.5
   echo -e "${BLUE}[+] ============================================== [+]${NC}"
   echo -e "${BLUE}[+]                                                [+]${NC}"
   echo -e "${BLUE}[+]          WELCOME TO INSTALLER PREMIUM          [+]${NC}"
+  echo -e "${BLUE}[+]               VERSI SAAT INI V 5.0             [+]${NC}"
   echo -e "${BLUE}[+]                 © RII STORE ID.                [+]${NC}"
   echo -e "${BLUE}[+]                                                [+]${NC}"
   echo -e "${BLUE}[+] ============================================== [+]${NC}"
@@ -195,7 +196,7 @@ echo "17. CONFIGURE WINGS"
 echo "18. DDOS MENU"
 echo "19. SPAM PAIRING MENU"
 echo "20. INSTALL TEMA STELLAR PTERODACTYL"
-echo "21. INSTALL TEMA NOOKTHEME PTERODACTYL
+echo "21. INSTALL TEMA NOOKTHEME PTERODACTYL"
 echo "22. KELUAR DARI INSTALLER"
  echo -e "${BLUE}[+] ============================================== [+]${NC}"
 read -p "PILIH OPSI (1-22): " OPTION

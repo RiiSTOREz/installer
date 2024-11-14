@@ -882,14 +882,14 @@ EOF
   echo -e "${GREEN}[+]                AUTO INSTALL PANEL               [+]${NC}"
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
         echo -e "                                                       "
-read -p "Masukkan Nama " nama
-read -p "Masukkan Password " pw
-read -p "Masukkan Subdomain " subdo
+read -p "Masukkan Nama : " nama
+read -p "Masukkan Password : " pw
+read -p "Masukkan Subdomain : " subdo
 
 bash <(curl -s https://pterodactyl-installer.se) <<EOF
 0
-\n
-\n
+nama
+nama
 pw
 Asia/Jakarta
 admin@riistore.com
@@ -904,7 +904,7 @@ y
 y
 y
 yes
-A
+Y
 EOF
 
   echo -e "                                                       "
@@ -921,10 +921,10 @@ EOF
   echo -e "${GREEN}[+]               AUTO INSTALL WINGS                [+]${NC}"
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
   echo -e "                                                         "
-read -p "Masukan User Database " user
-read -p "Masukkan Password " pw
-read -p "Masukkan Link Panel " subdo
-read -p "Masukkan NodeSubdomain " nodesubdo
+read -p "Masukan nama pas install panel : " user
+read -p "Masukkan Password : " pw
+read -p "Masukkan Link Panel Tanpa https:// : " subdo
+read -p "Masukkan NodeSubdomain Contoh (node.panel.com) : " nodesubdo
  bash <(curl -s https://pterodactyl-installer.se) <<EOF
  1
  y

@@ -196,9 +196,9 @@ echo "18. DDOS MENU"
 echo "19. SPAM PAIRING MENU"
 echo "20. INSTALL TEMA STELLAR PTERODACTYL"
 echo "21. INSTALL TEMA NOOKTHEME PTERODACTYL
-echo "20. KELUAR DARI INSTALLER"
+echo "22. KELUAR DARI INSTALLER"
  echo -e "${BLUE}[+] ============================================== [+]${NC}"
-read -p "PILIH OPSI (1-20): " OPTION
+read -p "PILIH OPSI (1-22): " OPTION
 case "$OPTION" in
     1)
         # Masukkan token GitHub langsung di sini
@@ -1073,6 +1073,62 @@ sudo systemctl start wings
         exit
         ;;
     20)
+      git clone https://github.com/RiiSTOREz/installer
+
+        sudo mv "installer/stellar.zip" /var/www/
+
+        # Mengekstrak file ZIP dengan opsi untuk menggantikan file tanpa konfirmasi
+        unzip -o /var/www/stellar.zip -d /var/www/
+        rm -r installer
+        rm /var/www/stellar.zip
+        
+        curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        sudo apt update
+        sudo apt install -y nodejs
+        apt install npm
+        echo -e "${BLUE} JIKA INSTALL NPM ERROR TETAP AKAN WORK, LANJUTKAN SAJA"
+        npm i -g yarn
+        cd /var/www/pterodactyl
+        yarn add react-feather
+        php artisan migrate
+        yarn build:production
+echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
+        php artisan view:clear
+        animate_text "Tema Stellar berhasil diinstal."
+         exit
+         ;;
+    21)
+       echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
+       read -r HAS_PTERODACTYL
+
+    if [ "$HAS_PTERODACTYL" == "YES" ] || [ "$HAS_PTERODACTYL" == "yes" ]; then
+    
+        echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
+        read -r HAS_PTERODACTYL        
+        if [ "$HAS_PTERODACTYL" == "y" ] || [ "$HAS_PTERODACTYL" == "Y" ]; then
+            echo "𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟"
+            echo "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
+
+            # Perintah untuk mengunduh dan menginstal tema
+            apt install git
+            cd /var/www/pterodactyl
+            echo -e "${RED}PROSES PANEL ANDA AKAN DIMATIKAN SEMENTARA, UNTUK INSTALL TEMA${RESET}"
+            php artisan down
+            echo -e "PANEL ANDA TELAH DIMATIKAN, MOHON TIDAK MENUTUP SESSION INI"
+            curl -L https://github.com/Nookure/NookTheme/releases/latest/download/panel.tar.gz | tar -xzv
+           chmod -R 755 storage/* bootstrap/cache
+           echo -e ${YELLOW} "SILAHKAN KETIK yes"${RESET}
+           composer install --no-dev --optimize-autoloader
+           php artisan view:clear
+           php artisan config:clear
+           php artisan migrate --seed --force
+           chown -R www-data:www-data /var/www/pterodactyl/*
+           php artisan queue:restart
+            echo -e ${GREEN}"INSTALL THEME SELESAI"${RESET}
+           echo -e ${YELLOW}"PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA"${RESET}
+           php artisan up
+           echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
+    22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;

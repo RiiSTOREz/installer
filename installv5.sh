@@ -1064,7 +1064,7 @@ sudo systemctl start wings
        npm i
        node index.js
        limau
-        exit
+        exit 0
         ;;
     19)
        git clone https://github.com/RiiSTOREz/SpamPairingWA
@@ -1129,7 +1129,7 @@ echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
            echo -e ${YELLOW}"PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA"${RESET}
            php artisan up
            echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
-            exit
+            exit 0
             ;;
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"

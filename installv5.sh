@@ -1071,7 +1071,7 @@ sudo systemctl start wings
        cd SpamPairingWA
        npm i
        npm start
-        exit
+        exit 0
         ;;
     20)
       git clone https://github.com/RiiSTOREz/installer
@@ -1096,7 +1096,7 @@ sudo systemctl start wings
 echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
         php artisan view:clear
         animate_text "Tema Stellar berhasil diinstal."
-         exit
+         exit 0
          ;;
     21)
     echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
@@ -1129,7 +1129,7 @@ echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
     echo -e ${YELLOW}"PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA"${RESET}
     php artisan up
     echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
-        exit 0
+        exit
         ;;
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"

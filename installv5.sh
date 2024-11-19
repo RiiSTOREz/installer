@@ -1093,22 +1093,22 @@ sudo systemctl start wings
         yarn add react-feather
         php artisan migrate
         yarn build:production
-echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
+        echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
         php artisan view:clear
         animate_text "Tema Stellar berhasil diinstal."
          exit 0
          ;;
     21)
-    echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
-    read -r HAS_PTERODACTYL
+     echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
+     read -r HAS_PTERODACTYL
 
-    if [ "$HAS_PTERODACTYL" == "YES" ] || [ "$HAS_PTERODACTYL" == "yes" ]; then
+     if [ "$HAS_PTERODACTYL" == "YES" ] || [ "$HAS_PTERODACTYL" == "yes" ]; then
     
-    echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
-    read -r HAS_PTERODACTYL        
-    if [ "$HAS_PTERODACTYL" == "y" ] || [ "$HAS_PTERODACTYL" == "Y" ]; then
-    echo "𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟"
-    echo "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
+     echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
+     read -r HAS_PTERODACTYL        
+     if [ "$HAS_PTERODACTYL" == "y" ] || [ "$HAS_PTERODACTYL" == "Y" ]; then
+     echo "𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟"
+     echo "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
 
     # Perintah untuk mengunduh dan menginstal tema
     apt install git
@@ -1130,7 +1130,6 @@ echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
     php artisan up
     echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
         exit
-        ;;
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

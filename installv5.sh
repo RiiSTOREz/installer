@@ -1147,6 +1147,7 @@ else
     echo -e "${RED}Anda memerlukan panel Pterodactyl sebelum melanjutkan.${RESET}"
     exit 1
 fi
+;;
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

@@ -1099,38 +1099,54 @@ sudo systemctl start wings
          exit 0
          ;;
     21)
-     echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
-     read -r HAS_PTERODACTYL
+echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
+read -r HAS_PTERODACTYL
 
-     if [ "$HAS_PTERODACTYL" == "YES" ] || [ "$HAS_PTERODACTYL" == "yes" ]; then
+if [[ "$HAS_PTERODACTYL" == "YES" || "$HAS_PTERODACTYL" == "yes" ]]; then
+    echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
+    read -r HAS_DELETED_THEME
     
-     echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
-     read -r HAS_PTERODACTYL        
-     if [ "$HAS_PTERODACTYL" == "y" ] || [ "$HAS_PTERODACTYL" == "Y" ]; then
-     echo "𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟"
-     echo "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
+    if [[ "$HAS_DELETED_THEME" == "y" || "$HAS_DELETED_THEME" == "Y" ]]; then
+        echo -e "${YELLOW}𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟${RESET}"
+        echo -e "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
 
-    # Perintah untuk mengunduh dan menginstal tema
-    apt install git
-    cd /var/www/pterodactyl
-    echo -e "${RED}PROSES PANEL ANDA AKAN DIMATIKAN SEMENTARA, UNTUK INSTALL TEMA${RESET}"
-    php artisan down
-    echo -e "PANEL ANDA TELAH DIMATIKAN, MOHON TIDAK MENUTUP SESSION INI"
-    curl -L https://github.com/Nookure/NookTheme/releases/latest/download/panel.tar.gz | tar -xzv
-    chmod -R 755 storage/* bootstrap/cache
-    echo -e ${YELLOW} "SILAHKAN KETIK yes"${RESET}
-    composer install --no-dev --optimize-autoloader
-    php artisan view:clear
-    php artisan config:clear
-    php artisan migrate --seed --force
-    chown -R www-data:www-data /var/www/pterodactyl/*
-    php artisan queue:restart
-    echo -e ${GREEN}"INSTALL THEME SELESAI"${RESET}
-    echo -e ${YELLOW}"PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA"${RESET}
-    php artisan up
-    echo -e ${GREEN}"SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA"${RESET}
+        # Perintah untuk mengunduh dan menginstal tema
+        apt update && apt install -y git
+        cd /var/www/pterodactyl || { echo -e "${RED}Direktori tidak ditemukan!${RESET}"; exit 1; }
+
+        echo -e "${RED}PROSES PANEL ANDA AKAN DIMATIKAN SEMENTARA, UNTUK INSTALL TEMA${RESET}"
+        php artisan down || { echo -e "${RED}Gagal menonaktifkan panel!${RESET}"; exit 1; }
+
+        echo -e "${YELLOW}PANEL ANDA TELAH DIMATIKAN, MOHON TIDAK MENUTUP SESSION INI${RESET}"
+        curl -L https://github.com/Nookure/NookTheme/releases/latest/download/panel.tar.gz | tar -xzv || {
+            echo -e "${RED}Gagal mengunduh atau mengekstrak tema!${RESET}"; exit 1;
+        }
+
+        chmod -R 755 storage/* bootstrap/cache
+        echo -e "${YELLOW}SILAHKAN KETIK 'yes' UNTUK MELANJUTKAN${RESET}"
+        composer install --no-dev --optimize-autoloader || { echo -e "${RED}Gagal menjalankan composer!${RESET}"; exit 1; }
+
+        php artisan view:clear
+        php artisan config:clear
+        php artisan migrate --seed --force || { echo -e "${RED}Gagal migrasi database!${RESET}"; exit 1; }
+
+        chown -R www-data:www-data /var/www/pterodactyl/*
+        php artisan queue:restart
+        echo -e "${GREEN}INSTALL THEME SELESAI${RESET}"
+
+        echo -e "${YELLOW}PROSES MENGAKTIFKAN KEMBALI PANEL PTERODACTYL ANDA${RESET}"
+        php artisan up || { echo -e "${RED}Gagal mengaktifkan kembali panel!${RESET}"; exit 1; }
+
+        echo -e "${GREEN}SELESAI, SILAHKAN MASUK KE WEB PANEL PTERODACTYL ANDA${RESET}"
         exit 0
-        ;;
+    else
+        echo -e "${RED}Hapus semua tema terlebih dahulu sebelum melanjutkan!${RESET}"
+        exit 1
+    fi
+else
+    echo -e "${RED}Anda memerlukan panel Pterodactyl sebelum melanjutkan.${RESET}"
+    exit 1
+fi
     22)
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0

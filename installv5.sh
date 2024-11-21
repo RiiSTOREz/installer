@@ -122,7 +122,6 @@ if [ "$INPUT_LICENSE" != "$VALID_LICENSE" ]; then
         animate_text "$i"
         sleep 1
     done
-    pkill -u $(whoami)  # Logout dari VPS
     exit
 fi
 

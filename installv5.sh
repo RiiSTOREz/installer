@@ -889,17 +889,17 @@ read -p "Masukkan Subdomain : " subdo
 
 bash <(curl -s https://pterodactyl-installer.se) <<EOF
 0
-nama
-nama
-pw
+$nama
+$nama
+$pw
 Asia/Jakarta
 admin@riistore.com
 admin@riistore.com
-nama
-nama
-nama
-pw
-subdo
+$nama
+$nama
+$nama
+$pw
+$subdo
 y
 y
 y
@@ -931,12 +931,12 @@ read -p "Masukkan NodeSubdomain Contoh (node.panel.com) : " nodesubdo
  y
  y
  y
- subdo
+ $subdo
  y
- user
- pw
+ $user
+ $pw
  y
- nodesubdo
+ $nodesubdo
  y
  admin@riistore.com
  y

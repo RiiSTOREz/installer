@@ -1074,29 +1074,62 @@ sudo systemctl start wings
         exit 0
         ;;
     20)
-      git clone https://github.com/RiiSTOREz/installer
+      echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
+    read -r HAS_PTERODACTYL
 
-        sudo mv "installer/stellar.zip" /var/www/
+    if [ "$HAS_PTERODACTYL" == "YES" ] || [ "$HAS_PTERODACTYL" == "yes" ]; then
+    
+        echo "APAKAH ANDA SUDAH MENGHAPUS SEMUA THEME DI PANEL PTERODACTYL? (y/n)"
+        read -r HAS_PTERODACTYL        
+        if [ "$HAS_PTERODACTYL" == "y" ] || [ "$HAS_PTERODACTYL" == "Y" ]; then
+            echo "𝗣𝗥𝗢𝗦𝗘𝗦 𝗜𝗡𝗦𝗧𝗔𝗟𝗟"
+            echo "ᴊɪᴋᴀ ᴀᴅᴀ ᴘɪʟɪʜᴀɴ ᴅɪʙᴀᴡᴀʜ sɪʟᴀʜᴋᴀɴ ᴘɪʟɪʜ Y"
+                sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+    sudo apt update
+    sudo apt install -y nodejs
+    npm i -g yarn
+    apt install unzip
+    cd /var/www/pterodactyl
+    yarn
+    chown -R www-data:www-data /var/www/pterodactyl/*
+    php artisan optimize
+    php artisan view:clear
+    echo -e "${BLUE}𝗞𝗘𝗧𝗜𝗞 yes${RESET}"
+    php artisan migrate
+    yarn add react-feather
+            cd /var/www/
+            apt install git
+            git clone https://github.com/riistorez/installer
+            mv /var/www/installer/stellar.zip /var/www/
+            echo -e "${BLUE}𝗦𝗜𝗟𝗔𝗛𝗞𝗔𝗡 𝗣𝗜𝗟𝗜𝗛 𝗔${RESET}"
+            unzip stellar.zip
+            echo "Installing theme..."
+            cd /var/www/pterodactyl
+   echo -e ${RED}"𝗦𝗜𝗟𝗔𝗛𝗞𝗔𝗡 𝗗𝗜𝗧𝗨𝗡𝗚𝗚𝗨, 𝗜𝗡𝗜 𝗔𝗞𝗔𝗡 𝗦𝗘𝗗𝗜𝗞𝗜𝗧 𝗟𝗔𝗠𝗔${RESET}"
+            yarn build:production
+       echo -e ${BLUE}"𝗧𝗘𝗥𝗗𝗘𝗧𝗜𝗞𝗦𝗜 𝗞𝗘𝗥𝗨𝗦𝗔𝗞𝗔𝗡, SILAHKAN DITUNGGU SAYA AKAN BERUSAHA UNTUK MEMPERBAIKINYA${RESET}"
+       echo -e ${BLUE}"𝗣𝗘𝗥𝗕𝗔𝗜𝗞𝗔𝗡 𝗠𝗢𝗗𝗘${RESET}${RESET}"
+      sed -i 's/defaultValue={variable.serverValue}/defaultValue={variable.serverValue ?? ""}/g' resources/scripts/components/server/startup/VariableBox.tsx
+       echo -e "${BLUE}𝗣𝗘𝗥𝗕𝗔𝗜𝗞𝗔𝗡 𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟 KITA COBA SEKALI LAGI${RESET}"
+       yarn build:production
+            sudo php artisan optimize:clear
+      echo -e "${GREEN}𝗕𝗘𝗥𝗛𝗔𝗦𝗜𝗟, 𝗦𝗜𝗟𝗔𝗛𝗞𝗔𝗡 𝗖𝗘𝗞 𝗪𝗘𝗕 𝗣𝗔𝗡𝗘𝗟 𝗔𝗡𝗗𝗔${RESET}"
 
-        # Mengekstrak file ZIP dengan opsi untuk menggantikan file tanpa konfirmasi
-        unzip -o /var/www/stellar.zip -d /var/www/
-        rm -r installer
-        rm /var/www/stellar.zip
-        
-        curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-        sudo apt update
-        sudo apt install -y nodejs
-        apt install npm
-        echo -e "${BLUE} JIKA INSTALL NPM ERROR TETAP AKAN WORK, LANJUTKAN SAJA"
-        npm i -g yarn
-        cd /var/www/pterodactyl
-        yarn add react-feather
-        php artisan migrate
-        yarn build:production
-        echo -e "${BLUE} KETIK yes UNTUK MELANJUTKAN${RESET}"
-        php artisan view:clear
-        animate_text "Tema Stellar berhasil diinstal."
-         exit 0
+            echo "Konfigurasi tambahan selesai."
+        elif [ "$HAS_PTERODACTYL" == "NO" ] || [ "$HAS_PTERODACTYL" == "no" ] || [ "$HAS_PTERODACTYL" == "n" ] || [ "$HAS_PTERODACTYL" == "N" ]; then
+            echo "Mengabaikan konfigurasi tambahan untuk Pterodactyl."
+            echo "Dibatalkan."
+            exit 1
+        else
+            echo "Pilihan tidak valid. Instalasi dibatalkan."
+            exit 1
+        fi
+    else
+        echo "Anda harus memiliki panel Pterodactyl terlebih dahulu. Instalasi dibatalkan."
+        exit 1
+    fi
          ;;
     21)
 echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"

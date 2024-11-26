@@ -1180,9 +1180,9 @@ if [[ "$HAS_PTERODACTYL" == "YES" || "$HAS_PTERODACTYL" == "yes" ]]; then
     fi
 else
     echo -e "${RED}Anda memerlukan panel Pterodactyl sebelum melanjutkan.${RESET}"
-    exit 1
-fi
-;;
+       exit 0
+        ;;
+        
     22)
        echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
     read -r HAS_PTERODACTYL
@@ -1231,7 +1231,8 @@ fi
         echo "Anda harus memiliki panel Pterodactyl terlebih dahulu. Instalasi dibatalkan."
         exit 0
         ;;
-    23)
+        
+      23)
        echo "ANDA HARUS MEMILIKI PANEL PTERODACTYL TERLEBIH DAHULU! APAKAH ANDA MEMPUNYAINYA? (YES/NO)"
     read -r HAS_PTERODACTYL
 
@@ -1302,6 +1303,7 @@ fi
         echo "Anda harus memiliki panel Pterodactyl terlebih dahulu. Instalasi dibatalkan."
         exit 1
         ;;
+        
     24)
          echo -e "                                                       "
   echo -e "${GREEN}[+] =============================================== [+]${NC}"
@@ -1354,9 +1356,10 @@ EOF
   echo -e "                                                       "
   sleep 2
   
-  exit 0
-   ;;
+      exit 0
+      ;;
     25)
+    
         echo -e "${BLUE}EXIT DARI INSTALLER DIPILIH${RESET}"
         exit 0
         ;;
